@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Item } from '../model/catalog.model';
 
 @Component({
   selector: 'app-catalog-item',
@@ -6,5 +7,20 @@ import { Component } from '@angular/core';
   styleUrls: ['./catalog-item.component.css']
 })
 export class CatalogItemComponent {
+
+  @Input()
+  item: Item | undefined;
+
+  @Output()
+  addToCartEventEmitter = new EventEmitter<Item>();
+
+  constructor() {
+    debugger
+    console.log("calling");
+  }
+
+  addToCart(item: Item | undefined): void {
+    this.addToCartEventEmitter.emit(item);
+  }
 
 }
