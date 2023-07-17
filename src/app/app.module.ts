@@ -16,16 +16,13 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatButtonModule } from '@angular/material/button';
 import { HttpClientModule } from '@angular/common/http';
-import { catalogReducer } from './catalog/state/catalog.reducer';
-import { CatalogEffect } from './catalog/state/catalog.effects';
-import { CartItemComponent } from './cart/cart-item/cart-item.component';
-import { CartShellComponent } from './cart/cart-shell/cart-shell.component';
-import { CatalogItemComponent } from './catalog/catalog-item/catalog-item.component';
-import { CatalogShellComponent } from './catalog/catalog-shell/catalog-shell.component';
-import { LoginComponent } from './user/login/login.component';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatCardModule } from '@angular/material/card';
+import { CatalogModule } from './catalog/catalog.module';
+import { CartModule } from './cart/cart.module';
+import { UserModule } from './user/user.module';
+import { MatBadgeModule } from '@angular/material/badge';
 
 @NgModule({
   declarations: [
@@ -33,21 +30,16 @@ import { MatCardModule } from '@angular/material/card';
     MenuComponent,
     PageNotFoundComponent,
     HomeShellComponent,
-    CartItemComponent,
-    CartShellComponent,
-    CatalogItemComponent,
-    CatalogShellComponent,
-    LoginComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,
     AppRoutingModule,
-    // StoreModule.forRoot({}),
-    // EffectsModule.forRoot([]),
-    StoreModule.forRoot({ itemsFeature: catalogReducer }),
-    EffectsModule.forRoot([CatalogEffect]),
+    StoreModule.forRoot({}),
+    EffectsModule.forRoot([]),
+    // StoreModule.forRoot({ itemsFeature: catalogReducer }),
+    // EffectsModule.forRoot([CatalogEffect]),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
     MatToolbarModule,
     MatListModule,
@@ -55,7 +47,13 @@ import { MatCardModule } from '@angular/material/card';
     MatSlideToggleModule,
     MatSidenavModule,
     MatButtonModule,
-    MatCardModule, MatDividerModule, MatProgressBarModule,
+    MatCardModule,
+    MatDividerModule,
+    MatProgressBarModule,
+    MatBadgeModule,
+    CatalogModule,
+    CartModule,
+    UserModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -9,7 +9,6 @@ import { Item } from "../model/catalog.model";
 export class CatalogService {
 
   constructor(private http: HttpClient) {
-    console.log("Working");
   }
 
   getItems(): Observable<Item[]> {
