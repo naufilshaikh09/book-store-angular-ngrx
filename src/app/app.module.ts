@@ -16,7 +16,16 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatButtonModule } from '@angular/material/button';
 import { HttpClientModule } from '@angular/common/http';
-import { CatalogModule } from './catalog/catalog.module';
+import { catalogReducer } from './catalog/state/catalog.reducer';
+import { CatalogEffect } from './catalog/state/catalog.effects';
+import { CartItemComponent } from './cart/cart-item/cart-item.component';
+import { CartShellComponent } from './cart/cart-shell/cart-shell.component';
+import { CatalogItemComponent } from './catalog/catalog-item/catalog-item.component';
+import { CatalogShellComponent } from './catalog/catalog-shell/catalog-shell.component';
+import { LoginComponent } from './user/login/login.component';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatCardModule } from '@angular/material/card';
 
 @NgModule({
   declarations: [
@@ -24,14 +33,21 @@ import { CatalogModule } from './catalog/catalog.module';
     MenuComponent,
     PageNotFoundComponent,
     HomeShellComponent,
+    CartItemComponent,
+    CartShellComponent,
+    CatalogItemComponent,
+    CatalogShellComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,
     AppRoutingModule,
-    StoreModule.forRoot({}),
-    EffectsModule.forRoot([]),
+    // StoreModule.forRoot({}),
+    // EffectsModule.forRoot([]),
+    StoreModule.forRoot({ itemsFeature: catalogReducer }),
+    EffectsModule.forRoot([CatalogEffect]),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
     MatToolbarModule,
     MatListModule,
@@ -39,6 +55,7 @@ import { CatalogModule } from './catalog/catalog.module';
     MatSlideToggleModule,
     MatSidenavModule,
     MatButtonModule,
+    MatCardModule, MatDividerModule, MatProgressBarModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

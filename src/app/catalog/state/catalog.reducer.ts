@@ -3,15 +3,17 @@ import { ItemsFeatureState } from "./catalog.selector";
 import { itemsLoadedSuccess } from "./actions/catalog-api.actions";
 
 export const initialState: ItemsFeatureState = {
-  items: []
+  items: [],
+  error: ""
 };
 
-export const catalogReducer = createReducer(
+export const catalogReducer = createReducer<ItemsFeatureState>(
   initialState,
-  on(itemsLoadedSuccess, (store, result) => {
+  on(itemsLoadedSuccess, (store, result): ItemsFeatureState => {
     return {
       ...store,
-      items: result.data
+      items: result.items,
+      error: ""
     }
   })
 );

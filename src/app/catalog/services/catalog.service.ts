@@ -9,21 +9,18 @@ import { Item } from "../model/catalog.model";
 export class CatalogService {
 
   constructor(private http: HttpClient) {
-    debugger
     console.log("Working");
   }
 
   getItems(): Observable<Item[]> {
-    debugger
-    return this.http.get<Item[]>('https://5d0e3cd1eba6ef0014561072.mockapi.io/articles');
-    // .pipe(
-    //   tap(data => console.log(JSON.stringify((data)))),
-    //   catchError(this.handleError)
-    // );
+    return this.http.get<Item[]>('https://5d0e3cd1eba6ef0014561072.mockapi.io/articles')
+      .pipe(
+        tap(data => console.log(JSON.stringify((data)))),
+        catchError(this.handleError)
+      );
   }
 
   private handleError(err: any) {
-    debugger
     // in a real world app, we may send the server to some remote logging infrastructure
     // instead of just logging it to the console
     let errorMessage: string;

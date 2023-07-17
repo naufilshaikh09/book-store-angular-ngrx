@@ -15,8 +15,6 @@ export class CatalogItemComponent {
   addToCartEventEmitter = new EventEmitter<Item>();
 
   constructor() {
-    debugger
-    console.log("calling");
   }
 
   addToCart(item: Item | undefined): void {

@@ -1,7 +1,4 @@
-hello2
-<div class="mb-3">
-  <ng-container *ngIf="items$ | async as items">
-    <app-catalog-item *ngFor="let item of items" [item]="item"
-      (addToCartEventEmitter)="addItemToCart($event)"></app-catalog-item>
-  </ng-container>
-</div>
+<ng-container *ngIf="items$ | async as items">
+  <app-catalog-item *ngFor="let item of items" [item]="item"
+    (addToCartEventEmitter)="addItemToCart($event)"></app-catalog-item>
+</ng-container>
