@@ -3,7 +3,7 @@
     <span routerLink="/" class="head-pointer">Book Store</span>
     <span class="example-spacer"></span>
     <button mat-button routerLink="/login">Login</button>
-    <button mat-mini-fab routerLink="/cart" matBadge="0">
+    <button mat-mini-fab routerLink="/cart" [matBadge]="(numberOfCartItems$ | async)">
       <mat-icon>shopping_cart</mat-icon>
     </button>
   </mat-toolbar>

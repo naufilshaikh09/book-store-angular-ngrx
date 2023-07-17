@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { CartItem } from '../model/cart-item.model';
 
 @Component({
   selector: 'app-cart-item',
@@ -6,5 +7,22 @@ import { Component } from '@angular/core';
   styleUrls: ['./cart-item.component.css']
 })
 export class CartItemComponent {
+
+  @Input() cartItem: any | undefined;
+  @Output() increaseItemInCartEvent = new EventEmitter<CartItem>();
+  @Output() reduceItemInCartEvent = new EventEmitter<CartItem>();
+  @Output() removeItemInCartEvent = new EventEmitter<CartItem>();
+
+  reduceItemInCart() {
+    this.reduceItemInCartEvent.emit(this.cartItem);
+  }
+
+  removeItemFromCart() {
+    this.removeItemInCartEvent.emit(this.cartItem);
+  }
+
+  increaseItemInCart() {
+    this.increaseItemInCartEvent.emit(this.cartItem);
+  }
 
 }

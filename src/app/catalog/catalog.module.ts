@@ -37,7 +37,6 @@ const catalogRoutes: Routes = [
     MatCardModule,
     MatListModule,
     MatButtonModule,
-    MatCardModule,
     MatDividerModule,
     MatButtonModule,
     MatProgressBarModule,
