@@ -17,7 +17,6 @@ export const cartReducer = createReducer<CartFeatureState>(
   initialState,
   on(CatalogPageActions.addItemToCart, (store: CartFeatureState, result): CartFeatureState => {
     const existingItem = store.cartItems.find(({ id }) => id === result.item.id);
-
     return {
       ...store,
       cartItems: store.cartItems.map((cartItem) => cartItem.item.id !== result.item.id

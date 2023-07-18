@@ -19,6 +19,7 @@ export class CatalogShellComponent implements OnInit {
 
   constructor(private readonly store: Store<State>) {
   }
+
   ngOnInit(): void {
     this.store.dispatch(CatalogPageActions.getItems());
   }

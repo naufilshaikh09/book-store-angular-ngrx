@@ -7,20 +7,23 @@ import { itemsLoadedFailure, itemsLoadedSuccess } from "./actions/catalog-api.ac
 
 @Injectable()
 export class CatalogEffect {
-  loadArticles$ = createEffect(() => this.actions$
-    .pipe(
-      ofType(CatalogPageActions.getItems),
-      mergeMap(() => this.articleService.getItems()
-        .pipe(
-          map(items => (itemsLoadedSuccess({ items: items }))),
-          catchError(error => of(itemsLoadedFailure({ error })))
-        ))
-    ))
+
+  loadArticles$ = createEffect(() => {
+    return this.actions$
+      .pipe(
+        ofType(CatalogPageActions.getItems),
+        mergeMap(() => this.articleService.getItems()
+          .pipe(
+            map(items => (itemsLoadedSuccess({ items: items }))),
+            catchError(error => of(itemsLoadedFailure({ error })))
+          ))
+      )
+  })
 
   constructor(
     private actions$: Actions,
     private articleService: CatalogService
   ) {
-    console.log("calling");
   }
+
 }
