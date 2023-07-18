@@ -10,15 +10,9 @@ import { MenuComponent } from './home/menu/menu.component';
 import { PageNotFoundComponent } from './home/page-not-found/page-not-found.component';
 import { HomeShellComponent } from './home/home-shell/home-shell.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatListModule } from '@angular/material/list';
 import { MatIconModule } from '@angular/material/icon';
-import { MatSlideToggleModule } from '@angular/material/slide-toggle';
-import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatButtonModule } from '@angular/material/button';
 import { HttpClientModule } from '@angular/common/http';
-import { MatProgressBarModule } from '@angular/material/progress-bar';
-import { MatDividerModule } from '@angular/material/divider';
-import { MatCardModule } from '@angular/material/card';
 import { CatalogModule } from './catalog/catalog.module';
 import { CartModule } from './cart/cart.module';
 import { UserModule } from './user/user.module';
@@ -42,14 +36,8 @@ import { MatBadgeModule } from '@angular/material/badge';
     // EffectsModule.forRoot([CatalogEffect]),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
     MatToolbarModule,
-    MatListModule,
     MatIconModule,
-    MatSlideToggleModule,
-    MatSidenavModule,
     MatButtonModule,
-    MatCardModule,
-    MatDividerModule,
-    MatProgressBarModule,
     MatBadgeModule,
     CatalogModule,
     CartModule,

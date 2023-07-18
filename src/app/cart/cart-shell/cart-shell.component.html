@@ -1,9 +1,12 @@
-<ng-container *ngIf="cartItems$ | async as items">
-  <h1>My cart</h1>
-  <span *ngIf="items.length === 0">Empty Cart</span>
-  <p *ngIf="items.length > 0">Total: {{(totalPrice$ | async) | currency}}</p>
-  <app-cart-item *ngFor="let item of items" [cartItem]="item" (reduceItemInCartEvent)="reduceItem(item)"
-    (removeItemInCartEvent)="removeItem(item)" (increaseItemInCartEvent)="increaseItem(item)">
-  </app-cart-item>
+<div class="container">
+  <ng-container *ngIf="cartItems$ | async as items">
+    <h1>My cart</h1>
+    <span *ngIf="items.length === 0">Empty Cart</span>
+    <p *ngIf="items.length > 0">Total: {{(totalPrice$ | async) | currency}}</p>
 
-</ng-container>
+    <app-cart-item *ngFor="let item of items" [cartItem]="item" (reduceItemInCartEvent)="reduceItem(item)"
+      (removeItemInCartEvent)="removeItem(item)" (increaseItemInCartEvent)="increaseItem(item)">
+    </app-cart-item>
+
+  </ng-container>
+</div>

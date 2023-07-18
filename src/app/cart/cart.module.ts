@@ -12,6 +12,7 @@ import { cartReducer } from './state/cart.reducer';
 import { CartEffect } from './state/cart.effects';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from "@angular/material/icon";
+import { MatButtonModule } from '@angular/material/button';
 
 const cartRoutes: Routes = [
   { path: '', component: CartShellComponent }
@@ -31,7 +32,8 @@ const cartRoutes: Routes = [
     BrowserModule,
     BrowserAnimationsModule,
     MatCardModule,
-    MatIconModule
+    MatIconModule,
+    MatButtonModule,
   ],
 })
 export class CartModule { }
